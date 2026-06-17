@@ -1,0 +1,12 @@
+# Konfigurasi deploy Netlify.
+# Proyek ini TANPA build step: file di-serve apa adanya dari root repo.
+[build]
+  publish = "."
+  command = ""
+
+# Redirect SPA: apa pun path-nya, kembalikan index.html (status 200, bukan redirect 301).
+# Ini wajib agar deep-link / refresh di sub-route tidak menghasilkan 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

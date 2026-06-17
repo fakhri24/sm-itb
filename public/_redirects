@@ -1,0 +1,3 @@
+# Cadangan aturan redirect SPA (sumber utama: netlify.toml).
+# Semua path -> index.html dengan status 200 supaya client-side router yang menangani.
+/*    /index.html   200

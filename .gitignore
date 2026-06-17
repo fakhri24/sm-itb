@@ -1,0 +1,12 @@
+# Secret & environment — JANGAN pernah di-commit
+.env
+.env.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependensi (kalau nanti dipakai)
+node_modules/

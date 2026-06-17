@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SM-ITB Matematika — Rangkuman & Latihan</title>
+
+  <!-- KaTeX: CSS wajib di-load agar rumus tampil rapi -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+  />
+
+  <!-- Stylesheet aplikasi (diisi di Fase 3) -->
+  <link rel="stylesheet" href="./src/css/styles.css" />
+</head>
+<body>
+  <!-- Satu-satunya "panggung" SPA. Semua halaman dirender JS ke dalam #app oleh router (Fase 4). -->
+  <div id="app">
+    <!-- Konten sementara Fase 0: penanda bahwa kerangka berjalan + uji render rumus. -->
+    <main>
+      <h1>SM-ITB Matematika</h1>
+      <p>Fondasi proyek berjalan. ✅</p>
+      <p>Uji render KaTeX: <span id="katex-test"></span></p>
+      <p id="lib-status">Memeriksa library…</p>
+    </main>
+  </div>
+
+  <!-- KaTeX JS (global window.katex) -->
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+
+  <!-- Supabase JS (global window.supabase) — dipakai mulai Fase 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Bootstrap aplikasi. type="module" -> bisa pakai import/export ES modules native (tanpa build). -->
+  <script type="module" src="./src/js/app.js"></script>
+</body>
+</html>
