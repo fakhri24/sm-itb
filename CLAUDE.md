@@ -79,7 +79,7 @@ Status: ☐ belum, ◧ konsep esensial dibuat, ☑ lengkap (konsep + soal).
 9. ☐ Fungsi, invers, komposisi
 10. ☐ Persamaan lingkaran
 11. ☐ Limit, turunan, integral
-12. ◧ **Eksponen dan logaritma** ← vertical slice pertama
+12. ☑ **Eksponen dan logaritma** ← vertical slice pertama (konsep + soal, SPA jalan dgn data mock; soal pindah ke Supabase di Fase 5)
 
 > Sub-materi & konsep esensial untuk topik 1–11 disusun **bertahap** setelah slice pertama jadi.
 
@@ -220,6 +220,8 @@ sm-itb/
 - Semua rumus via **KaTeX** (jangan gambar/Unicode mentah untuk rumus kompleks).
 - **Notasi logaritma:** pakai bentuk ilmiah $\log_a b$ (`\log_a b`), **bukan** ${}^a\log b$ (`{}^a\log b`).
 - **Soal pilihan ganda selalu 5 opsi (A–E).** `jawaban` salah satu dari `A`–`E`.
+- **Spasi di sekitar `<` pada math inline** (mis. `$0 < a < 1$`, bukan `$0<a<1$`). Teks rumus
+  diinjeksi via `innerHTML`; `<` tanpa spasi bisa dianggap awal tag HTML. (`>` aman.)
 - Akses storage progress **hanya** lewat `lib/storage.js` (jangan sebar `localStorage` langsung).
 - Akses Supabase **hanya** lewat `lib/supabase.js`.
 - Jaga agar tetap **tanpa build step** bila memungkinkan (ES modules native + CDN).

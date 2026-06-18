@@ -1,45 +1,34 @@
-// app.js — titik masuk (bootstrap) aplikasi.
-// FASE 0: tugasnya hanya membuktikan fondasi berjalan:
-//   1) KaTeX bisa merender rumus, dan
-//   2) library (KaTeX & Supabase) benar-benar ter-load dari CDN.
-// Nanti (Fase 4) file ini akan menginisialisasi router & memuat halaman pertama.
+// app.js — bootstrap aplikasi. Mendaftarkan rute -> view, lalu menjalankan router.
 
-// Jalankan setelah seluruh HTML siap (DOMContentLoaded), agar elemen target sudah ada.
-document.addEventListener("DOMContentLoaded", () => {
-  ujiKaTeX();
-  cekLibrary();
+import { tambahRute, setTidakDitemukan, mulaiRouter } from "./router.js";
+import { renderMath } from "./lib/katex.js";
+import { beranda } from "./views/beranda.js";
+import { materi } from "./views/materi.js";
+import { subMateri } from "./views/sub-materi.js";
+import { latihan } from "./views/latihan.js";
+import { notFoundHtml } from "./views/util.js";
+
+const outlet = document.getElementById("app");
+
+// Bungkus sebuah view menjadi handler rute:
+// render HTML -> render rumus -> jalankan onMount (pasang event, dll).
+function pasang(view) {
+  return (params) => {
+    const { html, onMount } = view(params);
+    outlet.innerHTML = html;
+    renderMath(outlet);
+    if (onMount) onMount(outlet);
+  };
+}
+
+// Peta rute (urutan dari spesifik ke umum tidak masalah karena regex di-anchor ^...$).
+tambahRute("/", pasang(beranda));
+tambahRute("/materi/:materiId", pasang(materi));
+tambahRute("/materi/:materiId/:subId", pasang(subMateri));
+tambahRute("/materi/:materiId/:subId/latihan", pasang(latihan));
+
+setTidakDitemukan(() => {
+  outlet.innerHTML = notFoundHtml();
 });
 
-// Render satu rumus uji ke dalam <span id="katex-test">.
-function ujiKaTeX() {
-  const target = document.getElementById("katex-test");
-  if (!target) return;
-
-  if (typeof window.katex === "undefined") {
-    target.textContent = "(KaTeX gagal dimuat)";
-    return;
-  }
-
-  // Rumus uji: definisi logaritma — representatif untuk slice pertama.
-  // Notasi logaritma memakai bentuk ilmiah \log_a b (bukan {}^a\log b).
-  window.katex.render("a^x = b \\iff x = \\log_a b", target, {
-    throwOnError: false,
-  });
-}
-
-// Tampilkan status apakah kedua library global tersedia.
-function cekLibrary() {
-  const status = document.getElementById("lib-status");
-  if (!status) return;
-
-  const adaKaTeX = typeof window.katex !== "undefined";
-  const adaSupabase = typeof window.supabase !== "undefined";
-
-  status.textContent =
-    `KaTeX: ${adaKaTeX ? "OK ✅" : "GAGAL ❌"} | ` +
-    `Supabase: ${adaSupabase ? "OK ✅" : "GAGAL ❌"}`;
-
-  // Log juga ke console untuk verifikasi developer.
-  console.log("[Fase 0] KaTeX termuat:", adaKaTeX);
-  console.log("[Fase 0] Supabase termuat:", adaSupabase);
-}
+mulaiRouter();

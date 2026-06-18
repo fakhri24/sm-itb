@@ -86,7 +86,7 @@
 
 ---
 
-## FASE 4 — Nyawa (JavaScript) ☐
+## FASE 4 — Nyawa (JavaScript) ☑
 
 **Tujuan:** ubah prototipe statis jadi SPA hidup. Markup Fase 2 → fungsi render JS.
 
@@ -154,7 +154,7 @@
 - [x] Fase 1 — Lapisan data (Supabase soal + file materi)
 - [x] Fase 2 — HTML prototipe (tanpa CSS)
 - [x] Fase 3 — CSS + penamaan konsisten
-- [ ] Fase 4 — JavaScript (alur materi → latihan, data mock)
+- [x] Fase 4 — JavaScript (alur materi → latihan, data mock)
 - [ ] Fase 5 — Integrasi Supabase nyata
 - [ ] Fase 6 — Deploy Netlify
 - [ ] Fase 7 — Replikasi pola ke topik lain
