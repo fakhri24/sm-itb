@@ -133,7 +133,7 @@
 
 ---
 
-## FASE 7 — Replikasi Pola (Rangkuman 11 Materi) ☐
+## FASE 7 — Replikasi Pola (Rangkuman 11 Materi) ☑
 
 **Tujuan:** Melengkapi rangkuman konsep esensial untuk 11 topik matematika tersisa secara bertahap tanpa soal database terlebih dahulu.
 
@@ -154,7 +154,7 @@
 - [x] **Fase 7.8:** Polinomial ☑
 - [x] **Fase 7.9:** Fungsi, Invers, Komposisi ☑
 - [x] **Fase 7.10:** Persamaan Lingkaran ☑
-- [ ] **Fase 7.11:** Limit, Turunan, Integral ☐
+- [x] **Fase 7.11:** Limit, Turunan, Integral ☑
 
 **Output / cara verifikasi:** topik baru muncul di beranda, bisa diklik, materi konsep esensial tampil rapi, halaman latihan menampilkan pesan fallback tanpa error.
 
@@ -169,4 +169,4 @@
 - [x] Fase 4 — JavaScript (alur materi → latihan, data mock)
 - [x] Fase 5 — Integrasi Supabase nyata
 - [x] Fase 6 — Deploy Netlify
-- [ ] Fase 7 — Replikasi pola (Fase 7.1 s.d 7.11)
+- [x] Fase 7 — Replikasi pola (Fase 7.1 s.d 7.11)

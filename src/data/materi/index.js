@@ -15,6 +15,7 @@ import kombinatorika from "./kombinatorika.js";
 import polinomial from "./polinomial.js";
 import fungsiInversKomposisi from "./fungsi-invers-komposisi.js";
 import persamaanLingkaran from "./persamaan-lingkaran.js";
+import limitTurunanIntegral from "./limit-turunan-integral.js";
 
 export const daftarTopik = [
   { id: "operasi-bilangan",        judul: "Operasi bilangan",              urutan: 1,  tersedia: true, data: operasiBilangan },
@@ -27,7 +28,7 @@ export const daftarTopik = [
   { id: "polinomial",              judul: "Polinomial",                    urutan: 8,  tersedia: true, data: polinomial },
   { id: "fungsi-invers-komposisi", judul: "Fungsi, invers, komposisi",     urutan: 9,  tersedia: true, data: fungsiInversKomposisi },
   { id: "persamaan-lingkaran",     judul: "Persamaan lingkaran",           urutan: 10, tersedia: true, data: persamaanLingkaran },
-  { id: "limit-turunan-integral",  judul: "Limit, turunan, integral",      urutan: 11, tersedia: false },
+  { id: "limit-turunan-integral",  judul: "Limit, turunan, integral",      urutan: 11, tersedia: true, data: limitTurunanIntegral },
   { id: "eksponen-logaritma",      judul: "Eksponen dan Logaritma",        urutan: 12, tersedia: true, data: eksponenLogaritma },
 ];
 
