@@ -55,7 +55,7 @@
 
 ---
 
-## FASE 2 — Tulang Frontend (HTML prototipe, TANPA CSS) ☐
+## FASE 2 — Tulang Frontend (HTML prototipe, TANPA CSS) ☑
 
 **Tujuan:** lihat semua elemen yang dibutuhkan tiap halaman, pakai markup statis hardcoded.
 
@@ -152,7 +152,7 @@
 
 - [x] Fase 0 — Fondasi proyek
 - [x] Fase 1 — Lapisan data (Supabase soal + file materi)
-- [ ] Fase 2 — HTML prototipe (tanpa CSS)
+- [x] Fase 2 — HTML prototipe (tanpa CSS)
 - [ ] Fase 3 — CSS + penamaan konsisten
 - [ ] Fase 4 — JavaScript (alur materi → latihan, data mock)
 - [ ] Fase 5 — Integrasi Supabase nyata

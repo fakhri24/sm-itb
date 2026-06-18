@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Prototipe] Sub-materi — Bentuk Pangkat</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+</head>
+<body>
+  <!-- ================= PROTOTIPE FASE 2 (tanpa CSS) =================
+       Tujuan: identifikasi elemen halaman SUB-MATERI = konsep esensial.
+       Menampilkan KE-4 tipe blok konsep: teks, rumus, catatan, contoh. -->
+
+  <header class="situs-header">
+    <a href="./beranda.html" class="situs-judul">SM-ITB Matematika</a>
+  </header>
+
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="./beranda.html">Beranda</a>
+    <span class="breadcrumb-pemisah">/</span>
+    <a href="./materi.html">Eksponen dan Logaritma</a>
+    <span class="breadcrumb-pemisah">/</span>
+    <span class="breadcrumb-aktif">Bentuk Pangkat</span>
+  </nav>
+
+  <main class="halaman halaman-submateri">
+    <h1 class="submateri-judul">Bentuk Pangkat (Eksponen)</h1>
+
+    <!-- Area konsep: tiap blok dirender sesuai `tipe`-nya. -->
+    <article class="konsep">
+      <p class="blok blok-teks">Pangkat (eksponen) adalah perkalian berulang sebuah bilangan pokok (basis) $a$ sebanyak $n$ kali.</p>
+
+      <div class="blok blok-rumus">$$a^n = \underbrace{a \times a \times \cdots \times a}_{n \text{ faktor}}$$</div>
+
+      <p class="blok blok-teks">Untuk $a \neq 0$ berlaku pangkat nol dan pangkat bulat negatif:</p>
+
+      <div class="blok blok-rumus">$$a^0 = 1 \qquad a^{-n} = \frac{1}{a^n}$$</div>
+
+      <p class="blok blok-teks">Sifat-sifat operasi pangkat (untuk basis yang valid):</p>
+
+      <div class="blok blok-rumus">$$a^m \cdot a^n = a^{m+n} \qquad \frac{a^m}{a^n} = a^{m-n}$$</div>
+
+      <aside class="blok blok-catatan">
+        <span class="blok-catatan-label">Catatan</span>
+        Pangkat negatif dan nol hanya terdefinisi untuk $a \neq 0$. Jangan tertukar: $-a^2 = -(a^2)$, sedangkan $(-a)^2 = a^2$.
+      </aside>
+
+      <div class="blok blok-contoh">
+        <span class="blok-contoh-label">Contoh</span>
+        $2^{-3} = \dfrac{1}{2^3} = \dfrac{1}{8}$, dan $\dfrac{a^5 \cdot a^3}{a^2} = a^{5+3-2} = a^6$.
+      </div>
+    </article>
+
+    <!-- Aksi & navigasi antar sub-materi. -->
+    <div class="submateri-aksi">
+      <button type="button" class="tombol-tandai-dibaca">Tandai sudah dibaca</button>
+      <a class="tombol-latihan" href="./latihan.html">Mulai Latihan (2 soal) →</a>
+    </div>
+
+    <nav class="submateri-nav" aria-label="navigasi sub-materi">
+      <span class="nav-prev nav-nonaktif">← Sebelumnya</span>
+      <a class="nav-next" href="./sub-materi.html">Bentuk Akar &amp; Pangkat Pecahan →</a>
+    </nav>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script>
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+      ],
+    });
+  </script>
+</body>
+</html>

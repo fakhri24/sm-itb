@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Prototipe] Materi — Eksponen dan Logaritma</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+</head>
+<body>
+  <!-- ================= PROTOTIPE FASE 2 (tanpa CSS) =================
+       Tujuan: identifikasi elemen halaman MATERI (satu topik) = daftar sub-materi.
+       Contoh: Eksponen dan Logaritma (6 sub-materi). -->
+
+  <header class="situs-header">
+    <a href="./beranda.html" class="situs-judul">SM-ITB Matematika</a>
+  </header>
+
+  <!-- Jejak navigasi (breadcrumb). -->
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="./beranda.html">Beranda</a>
+    <span class="breadcrumb-pemisah">/</span>
+    <span class="breadcrumb-aktif">Eksponen dan Logaritma</span>
+  </nav>
+
+  <main class="halaman halaman-materi">
+    <h1 class="materi-judul">Eksponen dan Logaritma</h1>
+    <p class="materi-deskripsi">Pilih sub-materi untuk membaca konsep esensial, lalu lanjut ke latihan soal.</p>
+
+    <!-- Daftar sub-materi. Tiap item: judul (tautan ke konsep), jumlah soal, status dibaca. -->
+    <ol class="daftar-submateri">
+      <li class="submateri-item">
+        <a class="submateri-judul" href="./sub-materi.html">Bentuk Pangkat (Eksponen)</a>
+        <span class="submateri-meta">2 soal</span>
+        <span class="submateri-status submateri-dibaca">sudah dibaca ✓</span>
+      </li>
+      <li class="submateri-item">
+        <a class="submateri-judul" href="./sub-materi.html">Bentuk Akar &amp; Pangkat Pecahan</a>
+        <span class="submateri-meta">2 soal</span>
+        <span class="submateri-status">belum dibaca</span>
+      </li>
+      <li class="submateri-item">
+        <a class="submateri-judul" href="./sub-materi.html">Persamaan &amp; Pertidaksamaan Eksponen</a>
+        <span class="submateri-meta">2 soal</span>
+        <span class="submateri-status">belum dibaca</span>
+      </li>
+      <li class="submateri-item">
+        <a class="submateri-judul" href="./sub-materi.html">Definisi Logaritma</a>
+        <span class="submateri-meta">2 soal</span>
+        <span class="submateri-status">belum dibaca</span>
+      </li>
+      <li class="submateri-item">
+        <a class="submateri-judul" href="./sub-materi.html">Sifat-sifat Logaritma</a>
+        <span class="submateri-meta">2 soal</span>
+        <span class="submateri-status">belum dibaca</span>
+      </li>
+      <li class="submateri-item">
+        <a class="submateri-judul" href="./sub-materi.html">Persamaan &amp; Pertidaksamaan Logaritma</a>
+        <span class="submateri-meta">1 soal</span>
+        <span class="submateri-status">belum dibaca</span>
+      </li>
+    </ol>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script>
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+      ],
+    });
+  </script>
+</body>
+</html>
