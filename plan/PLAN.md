@@ -103,7 +103,7 @@
 
 ---
 
-## FASE 5 — Integrasi Backend Nyata (Supabase) ☐
+## FASE 5 — Integrasi Backend Nyata (Supabase) ☑
 
 **Tujuan:** ganti data mock dengan data asli dari Supabase.
 
@@ -155,6 +155,6 @@
 - [x] Fase 2 — HTML prototipe (tanpa CSS)
 - [x] Fase 3 — CSS + penamaan konsisten
 - [x] Fase 4 — JavaScript (alur materi → latihan, data mock)
-- [ ] Fase 5 — Integrasi Supabase nyata
+- [x] Fase 5 — Integrasi Supabase nyata
 - [ ] Fase 6 — Deploy Netlify
 - [ ] Fase 7 — Replikasi pola ke topik lain

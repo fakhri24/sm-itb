@@ -29,7 +29,20 @@ export function latihan({ materiId, subId }) {
 
 async function jalankanLatihan(root, materiId, subId) {
   const kontainer = root.querySelector("#latihan-kontainer");
-  const soal = await fetchSoal(materiId, subId);
+
+  // Muat soal dari Supabase. Tangani gagal (koneksi/konfigurasi) dengan jelas.
+  let soal;
+  try {
+    soal = await fetchSoal(materiId, subId);
+  } catch (e) {
+    kontainer.innerHTML = `
+      <p class="pengantar">Gagal memuat soal. Periksa koneksi atau konfigurasi Supabase.</p>
+      <p><button type="button" class="tombol-ulangi" id="tombol-coba-lagi">Coba lagi</button></p>`;
+    kontainer
+      .querySelector("#tombol-coba-lagi")
+      .addEventListener("click", () => jalankanLatihan(root, materiId, subId));
+    return;
+  }
 
   if (soal.length === 0) {
     kontainer.innerHTML = `<p class="pengantar">Belum ada soal untuk sub-materi ini.</p>`;

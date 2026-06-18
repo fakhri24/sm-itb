@@ -33,13 +33,18 @@ export function materi({ materiId }) {
     <p class="materi-deskripsi">Pilih sub-materi untuk membaca konsep esensial, lalu lanjut ke latihan soal.</p>
     <ol class="daftar-submateri">${items}</ol>`;
 
-  // onMount: isi jumlah soal tiap sub-materi (datang dari sumber soal, async).
+  // onMount: isi jumlah soal tiap sub-materi (datang dari Supabase, async).
+  // Bila gagal (mis. koneksi/konfigurasi), tampilkan tanda "—" tanpa mematahkan halaman.
   const onMount = async (root) => {
     for (const s of data.subMateri) {
       const el = root.querySelector(`[data-jumlah="${s.id}"]`);
       if (!el) continue;
-      const list = await fetchSoal(materiId, s.id);
-      el.textContent = `${list.length} soal`;
+      try {
+        const list = await fetchSoal(materiId, s.id);
+        el.textContent = `${list.length} soal`;
+      } catch {
+        el.textContent = "—";
+      }
     }
   };
 
