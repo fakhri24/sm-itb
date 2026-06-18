@@ -118,7 +118,7 @@
 
 ---
 
-## FASE 6 — Deploy ke Netlify ☐
+## FASE 6 — Deploy ke Netlify ☑
 
 **Tujuan:** website live & redirect SPA jalan.
 
@@ -156,5 +156,5 @@
 - [x] Fase 3 — CSS + penamaan konsisten
 - [x] Fase 4 — JavaScript (alur materi → latihan, data mock)
 - [x] Fase 5 — Integrasi Supabase nyata
-- [ ] Fase 6 — Deploy Netlify
+- [x] Fase 6 — Deploy Netlify
 - [ ] Fase 7 — Replikasi pola ke topik lain
