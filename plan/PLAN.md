@@ -71,7 +71,7 @@
 
 ---
 
-## FASE 3 — Daging (CSS + penamaan id/class konsisten) ☐
+## FASE 3 — Daging (CSS + penamaan id/class konsisten) ☑
 
 **Tujuan:** tampilan **clean & akademik** (terang, aksen biru ITB), penamaan rapi & siap dimanipulasi JS.
 
@@ -153,7 +153,7 @@
 - [x] Fase 0 — Fondasi proyek
 - [x] Fase 1 — Lapisan data (Supabase soal + file materi)
 - [x] Fase 2 — HTML prototipe (tanpa CSS)
-- [ ] Fase 3 — CSS + penamaan konsisten
+- [x] Fase 3 — CSS + penamaan konsisten
 - [ ] Fase 4 — JavaScript (alur materi → latihan, data mock)
 - [ ] Fase 5 — Integrasi Supabase nyata
 - [ ] Fase 6 — Deploy Netlify

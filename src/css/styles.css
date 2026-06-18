@@ -1,3 +1,256 @@
-/* styles.css — placeholder.
-   Styling sebenarnya dikerjakan di FASE 3 (clean & akademik, aksen biru ITB).
-   Sengaja dibiarkan kosong dulu agar Fase 0–2 fokus pada struktur, bukan estetika. */
+/* ============================================================
+   SM-ITB Matematika — Stylesheet
+   Tema: "kertas kerja teknik" (engineering worksheet) — clean & akademik.
+   Aksen navy ITB; signature: blok rumus bertekstur grid + label monospace.
+   Dipakai oleh prototipe Fase 2 (sekarang) dan view JS Fase 4 (nanti).
+   ============================================================ */
+
+/* ---------- 1. Design tokens (variabel) ---------- */
+:root {
+  /* Warna */
+  --biru-itb: #00417a;     /* primary (navy ITB) */
+  --biru-tua: #002b54;
+  --biru-terang: #1668c4;  /* tautan & elemen aktif */
+  --tinta: #1a2330;        /* teks utama */
+  --tinta-lembut: #586173; /* teks sekunder */
+  --kertas: #fbfcff;       /* latar halaman (putih sejuk, bukan krem) */
+  --permukaan: #ffffff;    /* kartu */
+  --garis: #dde4ec;        /* hairline */
+  --grid: #e7edf5;         /* garis kertas-grid pada blok rumus */
+  --benar: #1f8a4c;  --benar-bg: #eaf6ee;
+  --salah: #c0392b;  --salah-bg: #fbeceb;
+  --catatan: #9a6700; --catatan-bg: #fdf6e6;
+  --contoh: #155e9c;  --contoh-bg: #eef4fb;
+
+  /* Tipografi */
+  --font-judul: "Source Serif 4", Georgia, serif;
+  --font-teks: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Bentuk & jarak */
+  --radius: 8px;
+  --radius-lg: 12px;
+  --lebar-konten: 880px;
+}
+
+/* ---------- 2. Dasar ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: var(--lebar-konten);
+  padding: 0 clamp(16px, 4vw, 32px) 4rem;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: var(--font-teks);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--biru-terang); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1 { font-family: var(--font-judul); font-weight: 600; font-size: 2rem; line-height: 1.2; color: var(--biru-tua); margin: 0 0 .5rem; }
+h2 { font-family: var(--font-judul); font-weight: 600; font-size: 1.4rem; color: var(--biru-tua); }
+
+:focus-visible { outline: 3px solid var(--biru-terang); outline-offset: 2px; border-radius: 4px; }
+
+/* ---------- 3. Header & footer situs ---------- */
+.situs-header {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem 1rem;
+  padding: 1.25rem 0; margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--biru-itb);
+}
+.situs-judul { font-family: var(--font-judul); font-weight: 700; font-size: 1.25rem; color: var(--biru-itb); }
+.situs-judul:hover { text-decoration: none; }
+.situs-tagline { margin: 0; color: var(--tinta-lembut); font-size: .95rem; }
+
+.situs-footer {
+  margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--garis);
+  color: var(--tinta-lembut); font-size: .9rem;
+}
+
+/* ---------- 4. Breadcrumb ---------- */
+.breadcrumb {
+  font-family: var(--font-mono); font-size: .8rem; letter-spacing: .01em;
+  color: var(--tinta-lembut); margin-bottom: 1.75rem;
+}
+.breadcrumb-pemisah { margin: 0 .4rem; color: var(--garis); }
+.breadcrumb-aktif { color: var(--tinta); }
+
+/* ---------- 5. Halaman umum ---------- */
+.pengantar, .materi-deskripsi { color: var(--tinta-lembut); margin-top: 0; }
+
+/* ---------- 6. Beranda: daftar topik ---------- */
+.daftar-topik { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 2px; }
+.topik-item {
+  display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: 1rem;
+  padding: .85rem 1rem; background: var(--permukaan);
+  border: 1px solid var(--garis); border-radius: var(--radius);
+}
+.topik-nomor {
+  font-family: var(--font-mono); font-size: .85rem; font-weight: 500;
+  color: var(--tinta-lembut); text-align: right;
+}
+.topik-judul { font-weight: 500; }
+.topik-status { font-family: var(--font-mono); font-size: .72rem; color: var(--tinta-lembut); text-transform: uppercase; letter-spacing: .04em; }
+
+.topik-nonaktif { opacity: .55; }
+.topik-aktif {
+  border-color: var(--biru-itb); border-left-width: 4px;
+  padding-left: calc(1rem - 3px);
+}
+.topik-aktif .topik-nomor { color: var(--biru-itb); }
+.topik-tautan { font-weight: 600; color: var(--biru-itb); }
+
+/* ---------- 7. Materi: daftar sub-materi (urutan bernomor) ---------- */
+.daftar-submateri { list-style: none; padding: 0; margin: 1.5rem 0 0; counter-reset: sub; display: grid; gap: 2px; }
+.submateri-item {
+  counter-increment: sub;
+  display: grid; grid-template-columns: 2.2rem 1fr auto; align-items: center; gap: .25rem 1rem;
+  padding: 1rem; background: var(--permukaan);
+  border: 1px solid var(--garis); border-radius: var(--radius);
+}
+.submateri-item::before {
+  content: counter(sub); grid-row: span 1;
+  display: inline-grid; place-items: center; width: 2rem; height: 2rem;
+  font-family: var(--font-mono); font-size: .9rem; font-weight: 500;
+  color: var(--biru-itb); background: var(--contoh-bg);
+  border-radius: 50%;
+}
+.submateri-judul { font-weight: 600; font-size: 1.05rem; }
+.submateri-meta { font-family: var(--font-mono); font-size: .78rem; color: var(--tinta-lembut); }
+.submateri-status { grid-column: 2 / -1; font-size: .82rem; color: var(--tinta-lembut); }
+.submateri-status.submateri-dibaca { color: var(--benar); }
+
+/* ---------- 8. Sub-materi: blok konsep ---------- */
+.konsep { margin-top: 1.5rem; }
+.blok { margin: 1.1rem 0; }
+.blok-teks { margin: 1.1rem 0; }
+
+/* Signature: blok rumus bertekstur kertas-grid */
+.blok-rumus {
+  padding: 1.1rem 1rem; overflow-x: auto; text-align: center;
+  background-color: var(--permukaan);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  border: 1px solid var(--garis); border-radius: var(--radius);
+}
+.blok-rumus .katex { font-size: 1.15em; }
+
+/* Catatan & contoh: kartu beraksen kiri + label monospace */
+.blok-catatan, .blok-contoh {
+  padding: .85rem 1rem; border-radius: 0;
+  border-left: 4px solid; border-top: 1px solid var(--garis);
+  border-right: 1px solid var(--garis); border-bottom: 1px solid var(--garis);
+}
+.blok-catatan { background: var(--catatan-bg); border-left-color: var(--catatan); }
+.blok-contoh  { background: var(--contoh-bg);  border-left-color: var(--contoh); }
+.blok-catatan-label, .blok-contoh-label, .pembahasan-label {
+  display: block; font-family: var(--font-mono); font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .08em; margin-bottom: .35rem; font-weight: 500;
+}
+.blok-catatan-label { color: var(--catatan); }
+.blok-contoh-label { color: var(--contoh); }
+
+/* ---------- 9. Tombol ---------- */
+.tombol-latihan, .tombol-soal-berikutnya, .tombol-ulangi, .tombol-tandai-dibaca, .tombol-kembali {
+  display: inline-block; font: inherit; font-weight: 500; cursor: pointer;
+  padding: .6rem 1.15rem; border-radius: var(--radius); border: 1px solid var(--biru-itb);
+  text-decoration: none;
+}
+/* Primer (aksi utama) */
+.tombol-latihan, .tombol-soal-berikutnya, .tombol-ulangi {
+  background: var(--biru-itb); color: #fff;
+}
+.tombol-latihan:hover, .tombol-soal-berikutnya:hover, .tombol-ulangi:hover {
+  background: var(--biru-tua); text-decoration: none;
+}
+/* Sekunder (aksi pendamping) */
+.tombol-tandai-dibaca, .tombol-kembali {
+  background: transparent; color: var(--biru-itb);
+}
+.tombol-tandai-dibaca:hover, .tombol-kembali:hover { background: var(--contoh-bg); text-decoration: none; }
+
+/* ---------- 10. Sub-materi: aksi & navigasi ---------- */
+.submateri-aksi { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin: 1.75rem 0; }
+.submateri-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--garis);
+  font-size: .95rem;
+}
+.nav-nonaktif { color: var(--tinta-lembut); opacity: .5; }
+
+/* ---------- 11. Latihan ---------- */
+.latihan-status {
+  display: flex; justify-content: space-between; gap: 1rem;
+  font-family: var(--font-mono); font-size: .85rem; color: var(--tinta-lembut);
+  padding: .6rem 0; margin-bottom: 1rem; border-bottom: 1px solid var(--garis);
+}
+
+.kartu-soal {
+  background: var(--permukaan); border: 1px solid var(--garis);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+}
+.soal-pertanyaan { font-size: 1.1rem; margin-top: 0; }
+
+.daftar-pilihan { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; gap: .6rem; }
+.pilihan-tombol {
+  display: flex; align-items: center; gap: .9rem; width: 100%; text-align: left;
+  font: inherit; cursor: pointer; padding: .8rem 1rem;
+  background: var(--permukaan); border: 1px solid var(--garis); border-radius: var(--radius);
+}
+.pilihan-tombol:hover { border-color: var(--biru-terang); background: var(--contoh-bg); }
+.pilihan-key {
+  display: inline-grid; place-items: center; flex: none; width: 1.9rem; height: 1.9rem;
+  font-family: var(--font-mono); font-weight: 500; color: var(--biru-itb);
+  background: var(--contoh-bg); border-radius: 50%;
+}
+/* Status setelah dijawab (dipakai Fase 4) */
+.pilihan-benar .pilihan-tombol, .pilihan-tombol.pilihan-benar {
+  border-color: var(--benar); background: var(--benar-bg);
+}
+.pilihan-benar .pilihan-key { color: #fff; background: var(--benar); }
+.pilihan-salah .pilihan-tombol, .pilihan-tombol.pilihan-salah {
+  border-color: var(--salah); background: var(--salah-bg);
+}
+.pilihan-salah .pilihan-key { color: #fff; background: var(--salah); }
+
+.soal-feedback { font-weight: 600; margin: 1.1rem 0 .5rem; }
+.feedback-benar { color: var(--benar); }
+.feedback-salah { color: var(--salah); }
+
+.soal-pembahasan {
+  margin-top: 1rem; padding: 1rem; background: var(--contoh-bg);
+  border-radius: var(--radius); border: 1px solid var(--garis);
+}
+.pembahasan-label { color: var(--contoh); }
+.soal-pembahasan p { margin: 0; }
+
+.tombol-soal-berikutnya { margin-top: 1.25rem; }
+
+/* ---------- 12. Hasil latihan ---------- */
+.latihan-hasil {
+  margin-top: 1.5rem; padding: 1.5rem; text-align: center;
+  background: var(--permukaan); border: 1px solid var(--garis); border-radius: var(--radius-lg);
+}
+.hasil-skor { font-size: 1.15rem; }
+.hasil-skor strong { font-family: var(--font-mono); color: var(--biru-itb); }
+.hasil-aksi { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+
+/* ---------- 13. Responsif ---------- */
+@media (max-width: 540px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.6rem; }
+  .topik-item { grid-template-columns: 2rem 1fr; }
+  .topik-status { grid-column: 2; }
+  .latihan-status { font-size: .78rem; }
+}
+
+/* ---------- 14. Aksesibilitas: hormati prefers-reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
