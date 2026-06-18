@@ -133,18 +133,30 @@
 
 ---
 
-## FASE 7 — Replikasi Pola (topik berikutnya) ☐
+## FASE 7 — Replikasi Pola (Rangkuman 11 Materi) ☐
 
-**Tujuan:** setelah Eksponen & Logaritma tuntas, topik lain tinggal ikut pola.
+**Tujuan:** Melengkapi rangkuman konsep esensial untuk 11 topik matematika tersisa secara bertahap tanpa soal database terlebih dahulu.
 
-**Langkah (per topik baru):**
-1. Tulis `src/data/materi/<id-topik>.js` (struktur sama).
-2. Seed soal di Supabase (`materi_id`/`sub_materi_id` sesuai).
-3. Daftarkan topik ke registry materi → otomatis muncul di routing & beranda.
+**Langkah Kerja per Sub-Fase:**
+1. Buat berkas data `src/data/materi/<id-topik>.js`.
+2. Tulis penjelasan & rumus KaTeX untuk tiap sub-materi.
+3. Impor & daftarkan topik tersebut di `src/data/materi/index.js`, lalu ubah `tersedia: true`.
+4. Verifikasi di browser lokal (halaman materi bisa dibuka & rumus dirender dengan baik).
 
-**Output / cara verifikasi:** topik baru muncul & berfungsi tanpa menyentuh logika inti (hanya tambah data).
+### Sub-Fase Rangkuman:
+- [ ] **Fase 7.1:** Operasi Bilangan ☐
+- [ ] **Fase 7.2:** Aljabar ☐
+- [ ] **Fase 7.3:** Trigonometri ☐
+- [ ] **Fase 7.4:** Bangun Datar dan Bangun Ruang ☐
+- [ ] **Fase 7.5:** Statistika ☐
+- [ ] **Fase 7.6:** Sistem Koordinat Kartesius ☐
+- [ ] **Fase 7.7:** Kombinatorika ☐
+- [ ] **Fase 7.8:** Polinomial ☐
+- [ ] **Fase 7.9:** Fungsi, Invers, Komposisi ☐
+- [ ] **Fase 7.10:** Persamaan Lingkaran ☐
+- [ ] **Fase 7.11:** Limit, Turunan, Integral ☐
 
-**Yang dipelajari:** kekuatan arsitektur berbasis data — fitur = nambah data, bukan nambah logika.
+**Output / cara verifikasi:** topik baru muncul di beranda, bisa diklik, materi konsep esensial tampil rapi, halaman latihan menampilkan pesan fallback tanpa error.
 
 ---
 
@@ -157,4 +169,4 @@
 - [x] Fase 4 — JavaScript (alur materi → latihan, data mock)
 - [x] Fase 5 — Integrasi Supabase nyata
 - [x] Fase 6 — Deploy Netlify
-- [ ] Fase 7 — Replikasi pola ke topik lain
+- [ ] Fase 7 — Replikasi pola (Fase 7.1 s.d 7.11)
