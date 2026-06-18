@@ -129,14 +129,10 @@ h2 { font-family: var(--font-judul); font-weight: 600; font-size: 1.4rem; color:
 .blok { margin: 1.1rem 0; }
 .blok-teks { margin: 1.1rem 0; }
 
-/* Signature: blok rumus bertekstur kertas-grid */
+/* Signature: blok rumus */
 .blok-rumus {
   padding: 1.1rem 1rem; overflow-x: auto; text-align: center;
   background-color: var(--permukaan);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 22px 22px;
   border: 1px solid var(--garis); border-radius: var(--radius);
 }
 .blok-rumus .katex { font-size: 1.15em; }
