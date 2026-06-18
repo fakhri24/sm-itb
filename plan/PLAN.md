@@ -36,7 +36,7 @@
 
 ---
 
-## FASE 1 — Lapisan Data ("backend" / kontrak data) ☐
+## FASE 1 — Lapisan Data ("backend" / kontrak data) ☑
 
 > Data ada di **dua tempat**: materi = file statis repo; soal = Supabase. Keduanya mengunci nama field.
 
@@ -151,7 +151,7 @@
 ## Checklist Ringkas
 
 - [x] Fase 0 — Fondasi proyek
-- [ ] Fase 1 — Lapisan data (Supabase soal + file materi)
+- [x] Fase 1 — Lapisan data (Supabase soal + file materi)
 - [ ] Fase 2 — HTML prototipe (tanpa CSS)
 - [ ] Fase 3 — CSS + penamaan konsisten
 - [ ] Fase 4 — JavaScript (alur materi → latihan, data mock)

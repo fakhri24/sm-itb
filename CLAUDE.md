@@ -58,7 +58,7 @@ Materi (12 topik) → Sub-materi → Konsep Esensial (+ Bank Soal Latihan per su
 | Storage materi | File statis di repo |
 | Storage soal | Supabase (read-only anonim, publishable key) |
 | Auth | Tanpa login; progress di localStorage (siap migrasi) |
-| Format soal | Pilihan Ganda + pembahasan; **validasi di client** (jawaban benar boleh ter-fetch ke client — wajar untuk situs belajar) |
+| Format soal | Pilihan Ganda **5 opsi (A–E)** + pembahasan; **validasi di client** (jawaban benar boleh ter-fetch ke client — wajar untuk situs belajar) |
 | MVP | **Vertical slice 1 topik dulu**: **Eksponen & Logaritma** (lengkap: konsep esensial + soal), end-to-end |
 | Desain | **Clean & akademik** — terang, fokus keterbacaan rumus, aksen biru ITB |
 
@@ -89,21 +89,26 @@ Status: ☐ belum, ◧ konsep esensial dibuat, ☑ lengkap (konsep + soal).
 
 Sub-materi + konsep esensial (seed konten; boleh dikembangkan, rumus dirender KaTeX):
 
-1. **Bentuk pangkat (eksponen)**
+1. **Bentuk pangkat (eksponen)** — `id: bentuk-pangkat`
    - Definisi pangkat bulat (positif, nol, negatif): $a^0=1$, $a^{-n}=\frac{1}{a^n}$
    - Sifat: $a^m\cdot a^n=a^{m+n}$, $\frac{a^m}{a^n}=a^{m-n}$, $(a^m)^n=a^{mn}$, $(ab)^n=a^nb^n$, $\left(\frac{a}{b}\right)^n=\frac{a^n}{b^n}$
-2. **Bentuk akar & pangkat pecahan**
+2. **Bentuk akar & pangkat pecahan** — `id: bentuk-akar`
    - $a^{1/n}=\sqrt[n]{a}$, $a^{m/n}=\sqrt[n]{a^m}$
    - Merasionalkan penyebut
-3. **Persamaan & pertidaksamaan eksponen**
+3. **Persamaan & pertidaksamaan eksponen** — `id: persamaan-eksponen`
    - Basis sama → samakan eksponen; perhatikan basis $>1$ vs $0<a<1$ (arah pertidaksamaan)
-4. **Definisi logaritma**
+4. **Definisi logaritma** — `id: definisi-logaritma`
    - $a^x=b \iff x=\log_a b$ (basis $a>0,\ a\neq1$)
-5. **Sifat logaritma**
+5. **Sifat logaritma** — `id: sifat-logaritma`
    - $\log_a(xy)=\log_a x+\log_a y$, $\log_a\frac{x}{y}=\log_a x-\log_a y$
    - $\log_a x^n=n\,\log_a x$, ganti basis $\frac{\log_c b}{\log_c a}$, $\log_a a=1$, $\log_a 1=0$
-6. **Persamaan & pertidaksamaan logaritma**
+6. **Persamaan & pertidaksamaan logaritma** — `id: persamaan-logaritma`
    - Syarat numerus $>0$; basis $>1$ vs $0<a<1$
+
+> **Kontrak `sub_materi_id`** (kebab-case, stabil): `bentuk-pangkat`, `bentuk-akar`,
+> `persamaan-eksponen`, `definisi-logaritma`, `sifat-logaritma`, `persamaan-logaritma`.
+> Wajib **sama persis** antara file materi (`src/data/materi/eksponen-logaritma.js`) dan kolom
+> `sub_materi_id` di tabel `soal`. SQL skema & seed ada di folder `supabase/`.
 
 Setiap sub-materi punya **bank soal PG** di Supabase (lihat skema §7).
 
@@ -159,6 +164,10 @@ create policy "anon read soal" on soal for select to anon using (true);
 
 - Validasi jawaban **di client** (cocokkan `pilihan key` dengan `jawaban`).
 - Konfigurasi Supabase (`url`, `publishable key`) di file config client; **jangan** taruh `secret key`.
+- **Delimiter rumus:** teks `pertanyaan`, `pilihan[].teks`, dan `pembahasan` boleh memuat KaTeX
+  dengan delimiter `$...$` (inline) / `$$...$$` (display). Frontend yang merender (Fase 4).
+- **SQL ada di repo:** `supabase/schema.sql` (tabel + RLS) & `supabase/seed.sql` (soal contoh),
+  dijalankan manual di Supabase SQL Editor.
 
 ---
 
@@ -210,6 +219,7 @@ sm-itb/
 - ID konten: **kebab-case**, stabil.
 - Semua rumus via **KaTeX** (jangan gambar/Unicode mentah untuk rumus kompleks).
 - **Notasi logaritma:** pakai bentuk ilmiah $\log_a b$ (`\log_a b`), **bukan** ${}^a\log b$ (`{}^a\log b`).
+- **Soal pilihan ganda selalu 5 opsi (A–E).** `jawaban` salah satu dari `A`–`E`.
 - Akses storage progress **hanya** lewat `lib/storage.js` (jangan sebar `localStorage` langsung).
 - Akses Supabase **hanya** lewat `lib/supabase.js`.
 - Jaga agar tetap **tanpa build step** bila memungkinkan (ES modules native + CDN).
