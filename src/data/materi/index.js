@@ -9,13 +9,14 @@ import operasiBilangan from "./operasi-bilangan.js";
 import aljabar from "./aljabar.js";
 import trigonometri from "./trigonometri.js";
 import bangunDatarRuang from "./bangun-datar-ruang.js";
+import statistika from "./statistika.js";
 
 export const daftarTopik = [
   { id: "operasi-bilangan",        judul: "Operasi bilangan",              urutan: 1,  tersedia: true, data: operasiBilangan },
   { id: "aljabar",                 judul: "Aljabar",                       urutan: 2,  tersedia: true, data: aljabar },
   { id: "trigonometri",            judul: "Trigonometri",                  urutan: 3,  tersedia: true, data: trigonometri },
   { id: "bangun-datar-ruang",      judul: "Bangun datar dan bangun ruang", urutan: 4,  tersedia: true, data: bangunDatarRuang },
-  { id: "statistika",              judul: "Statistika",                    urutan: 5,  tersedia: false },
+  { id: "statistika",              judul: "Statistika",                    urutan: 5,  tersedia: true, data: statistika },
   { id: "koordinat-kartesius",     judul: "Sistem koordinat kartesius",    urutan: 6,  tersedia: false },
   { id: "kombinatorika",           judul: "Kombinatorika",                 urutan: 7,  tersedia: false },
   { id: "polinomial",              judul: "Polinomial",                    urutan: 8,  tersedia: false },

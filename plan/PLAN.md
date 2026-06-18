@@ -148,7 +148,7 @@
 - [x] **Fase 7.2:** Aljabar ☑
 - [x] **Fase 7.3:** Trigonometri ☑
 - [x] **Fase 7.4:** Bangun Datar dan Bangun Ruang ☑
-- [ ] **Fase 7.5:** Statistika ☐
+- [x] **Fase 7.5:** Statistika ☑
 - [ ] **Fase 7.6:** Sistem Koordinat Kartesius ☐
 - [ ] **Fase 7.7:** Kombinatorika ☐
 - [ ] **Fase 7.8:** Polinomial ☐
