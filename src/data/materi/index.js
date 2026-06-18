@@ -13,6 +13,7 @@ import statistika from "./statistika.js";
 import koordinatKartesius from "./koordinat-kartesius.js";
 import kombinatorika from "./kombinatorika.js";
 import polinomial from "./polinomial.js";
+import fungsiInversKomposisi from "./fungsi-invers-komposisi.js";
 
 export const daftarTopik = [
   { id: "operasi-bilangan",        judul: "Operasi bilangan",              urutan: 1,  tersedia: true, data: operasiBilangan },
@@ -23,7 +24,7 @@ export const daftarTopik = [
   { id: "koordinat-kartesius",     judul: "Sistem koordinat kartesius",    urutan: 6,  tersedia: true, data: koordinatKartesius },
   { id: "kombinatorika",           judul: "Kombinatorika",                 urutan: 7,  tersedia: true, data: kombinatorika },
   { id: "polinomial",              judul: "Polinomial",                    urutan: 8,  tersedia: true, data: polinomial },
-  { id: "fungsi-invers-komposisi", judul: "Fungsi, invers, komposisi",     urutan: 9,  tersedia: false },
+  { id: "fungsi-invers-komposisi", judul: "Fungsi, invers, komposisi",     urutan: 9,  tersedia: true, data: fungsiInversKomposisi },
   { id: "persamaan-lingkaran",     judul: "Persamaan lingkaran",           urutan: 10, tersedia: false },
   { id: "limit-turunan-integral",  judul: "Limit, turunan, integral",      urutan: 11, tersedia: false },
   { id: "eksponen-logaritma",      judul: "Eksponen dan Logaritma",        urutan: 12, tersedia: true, data: eksponenLogaritma },

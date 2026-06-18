@@ -152,7 +152,7 @@
 - [x] **Fase 7.6:** Sistem Koordinat Kartesius ☑
 - [x] **Fase 7.7:** Kombinatorika ☑
 - [x] **Fase 7.8:** Polinomial ☑
-- [ ] **Fase 7.9:** Fungsi, Invers, Komposisi ☐
+- [x] **Fase 7.9:** Fungsi, Invers, Komposisi ☑
 - [ ] **Fase 7.10:** Persamaan Lingkaran ☐
 - [ ] **Fase 7.11:** Limit, Turunan, Integral ☐
 
