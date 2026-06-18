@@ -153,7 +153,7 @@
 - [x] **Fase 7.7:** Kombinatorika ☑
 - [x] **Fase 7.8:** Polinomial ☑
 - [x] **Fase 7.9:** Fungsi, Invers, Komposisi ☑
-- [ ] **Fase 7.10:** Persamaan Lingkaran ☐
+- [x] **Fase 7.10:** Persamaan Lingkaran ☑
 - [ ] **Fase 7.11:** Limit, Turunan, Integral ☐
 
 **Output / cara verifikasi:** topik baru muncul di beranda, bisa diklik, materi konsep esensial tampil rapi, halaman latihan menampilkan pesan fallback tanpa error.
