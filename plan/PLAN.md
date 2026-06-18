@@ -149,7 +149,7 @@
 - [x] **Fase 7.3:** Trigonometri ☑
 - [x] **Fase 7.4:** Bangun Datar dan Bangun Ruang ☑
 - [x] **Fase 7.5:** Statistika ☑
-- [ ] **Fase 7.6:** Sistem Koordinat Kartesius ☐
+- [x] **Fase 7.6:** Sistem Koordinat Kartesius ☑
 - [ ] **Fase 7.7:** Kombinatorika ☐
 - [ ] **Fase 7.8:** Polinomial ☐
 - [ ] **Fase 7.9:** Fungsi, Invers, Komposisi ☐

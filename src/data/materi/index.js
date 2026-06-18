@@ -10,6 +10,7 @@ import aljabar from "./aljabar.js";
 import trigonometri from "./trigonometri.js";
 import bangunDatarRuang from "./bangun-datar-ruang.js";
 import statistika from "./statistika.js";
+import koordinatKartesius from "./koordinat-kartesius.js";
 
 export const daftarTopik = [
   { id: "operasi-bilangan",        judul: "Operasi bilangan",              urutan: 1,  tersedia: true, data: operasiBilangan },
@@ -17,7 +18,7 @@ export const daftarTopik = [
   { id: "trigonometri",            judul: "Trigonometri",                  urutan: 3,  tersedia: true, data: trigonometri },
   { id: "bangun-datar-ruang",      judul: "Bangun datar dan bangun ruang", urutan: 4,  tersedia: true, data: bangunDatarRuang },
   { id: "statistika",              judul: "Statistika",                    urutan: 5,  tersedia: true, data: statistika },
-  { id: "koordinat-kartesius",     judul: "Sistem koordinat kartesius",    urutan: 6,  tersedia: false },
+  { id: "koordinat-kartesius",     judul: "Sistem koordinat kartesius",    urutan: 6,  tersedia: true, data: koordinatKartesius },
   { id: "kombinatorika",           judul: "Kombinatorika",                 urutan: 7,  tersedia: false },
   { id: "polinomial",              judul: "Polinomial",                    urutan: 8,  tersedia: false },
   { id: "fungsi-invers-komposisi", judul: "Fungsi, invers, komposisi",     urutan: 9,  tersedia: false },
