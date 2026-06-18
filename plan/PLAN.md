@@ -144,7 +144,7 @@
 4. Verifikasi di browser lokal (halaman materi bisa dibuka & rumus dirender dengan baik).
 
 ### Sub-Fase Rangkuman:
-- [ ] **Fase 7.1:** Operasi Bilangan ☐
+- [x] **Fase 7.1:** Operasi Bilangan ☑
 - [ ] **Fase 7.2:** Aljabar ☐
 - [ ] **Fase 7.3:** Trigonometri ☐
 - [ ] **Fase 7.4:** Bangun Datar dan Bangun Ruang ☐

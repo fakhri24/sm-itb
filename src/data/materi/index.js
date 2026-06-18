@@ -5,9 +5,10 @@
 // ============================================================
 
 import eksponenLogaritma from "./eksponen-logaritma.js";
+import operasiBilangan from "./operasi-bilangan.js";
 
 export const daftarTopik = [
-  { id: "operasi-bilangan",        judul: "Operasi bilangan",              urutan: 1,  tersedia: false },
+  { id: "operasi-bilangan",        judul: "Operasi bilangan",              urutan: 1,  tersedia: true, data: operasiBilangan },
   { id: "aljabar",                 judul: "Aljabar",                       urutan: 2,  tersedia: false },
   { id: "trigonometri",            judul: "Trigonometri",                  urutan: 3,  tersedia: false },
   { id: "bangun-datar-ruang",      judul: "Bangun datar dan bangun ruang", urutan: 4,  tersedia: false },
