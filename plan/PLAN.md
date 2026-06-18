@@ -145,7 +145,7 @@
 
 ### Sub-Fase Rangkuman:
 - [x] **Fase 7.1:** Operasi Bilangan ☑
-- [ ] **Fase 7.2:** Aljabar ☐
+- [x] **Fase 7.2:** Aljabar ☑
 - [ ] **Fase 7.3:** Trigonometri ☐
 - [ ] **Fase 7.4:** Bangun Datar dan Bangun Ruang ☐
 - [ ] **Fase 7.5:** Statistika ☐
