@@ -2,7 +2,7 @@
 
 import { getTopik } from "../../data/materi/index.js";
 import { tandaiDibaca, sudahDibaca } from "../lib/storage.js";
-import { notFoundHtml } from "./util.js";
+import { notFoundHtml, parseMarkdown } from "./util.js";
 
 export function subMateri({ materiId, subId }) {
   const topik = getTopik(materiId);
@@ -56,15 +56,16 @@ export function subMateri({ materiId, subId }) {
 
 // Render satu blok konsep sesuai tipenya. Untuk "rumus", bungkus dengan $$ (display).
 function renderBlok(b) {
+  const isi = parseMarkdown(b.isi);
   switch (b.tipe) {
     case "teks":
-      return `<p class="blok blok-teks">${b.isi}</p>`;
+      return `<p class="blok blok-teks">${isi}</p>`;
     case "rumus":
       return `<div class="blok blok-rumus">$$${b.isi}$$</div>`;
     case "catatan":
-      return `<aside class="blok blok-catatan"><span class="blok-catatan-label">Catatan</span> ${b.isi}</aside>`;
+      return `<aside class="blok blok-catatan"><span class="blok-catatan-label">Catatan</span> ${isi}</aside>`;
     case "contoh":
-      return `<div class="blok blok-contoh"><span class="blok-contoh-label">Contoh</span> ${b.isi}</div>`;
+      return `<div class="blok blok-contoh"><span class="blok-contoh-label">Contoh</span> ${isi}</div>`;
     default:
       return "";
   }

@@ -5,7 +5,7 @@ import { getTopik, getSubMateri } from "../../data/materi/index.js";
 import { fetchSoal } from "../lib/soal.js";
 import { simpanSkorLatihan } from "../lib/storage.js";
 import { renderMath } from "../lib/katex.js";
-import { notFoundHtml } from "./util.js";
+import { notFoundHtml, parseMarkdown } from "./util.js";
 
 export function latihan({ materiId, subId }) {
   const topik = getTopik(materiId);
@@ -64,7 +64,7 @@ async function jalankanLatihan(root, materiId, subId) {
         <li class="pilihan-item">
           <button type="button" class="pilihan-tombol" data-key="${p.key}">
             <span class="pilihan-key">${p.key}</span>
-            <span class="pilihan-teks">${p.teks}</span>
+            <span class="pilihan-teks">${parseMarkdown(p.teks)}</span>
           </button>
         </li>`
       )
@@ -78,7 +78,7 @@ async function jalankanLatihan(root, materiId, subId) {
         <span class="latihan-skor">Benar: ${benar}</span>
       </div>
       <section class="kartu-soal">
-        <p class="soal-pertanyaan">${s.pertanyaan}</p>
+        <p class="soal-pertanyaan">${parseMarkdown(s.pertanyaan)}</p>
         <ul class="daftar-pilihan">${pilihan}</ul>
         <div class="area-feedback" hidden></div>
         <div class="area-pembahasan" hidden></div>
@@ -120,7 +120,7 @@ async function jalankanLatihan(root, materiId, subId) {
       pembahasan.innerHTML = `
         <div class="soal-pembahasan">
           <span class="pembahasan-label">Pembahasan</span>
-          <p>${s.pembahasan}</p>
+          <p>${parseMarkdown(s.pembahasan)}</p>
         </div>`;
     }
 
